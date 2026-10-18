@@ -1,0 +1,17 @@
+services:
+  - type: worker
+    name: tamusho-bot
+    runtime: python
+    plan: free
+    region: oregon
+    buildCommand: pip install --upgrade pip && pip install -r requirements.txt
+    startCommand: python bot.py
+    envVars:
+      - key: BOT_TOKEN
+        sync: false
+      - key: ADMIN_IDS
+        sync: false
+      - key: DB_PATH
+        value: /tmp/tamosho.sqlite3
+      - key: LOG_LEVEL
+        value: INFO
