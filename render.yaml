@@ -5,7 +5,7 @@ services:
     plan: free
     region: oregon
     buildCommand: pip install --upgrade pip && pip install -r requirements.txt
-    startCommand: python bot.py
+    startCommand: python -u bot.py
     envVars:
       - key: BOT_TOKEN
         sync: false
@@ -13,5 +13,7 @@ services:
         sync: false
       - key: DB_PATH
         value: /tmp/tamosho.sqlite3
+      - key: RENDER
+        value: "true"
       - key: LOG_LEVEL
         value: INFO
